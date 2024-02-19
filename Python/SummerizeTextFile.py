@@ -4,10 +4,10 @@
 # In[1]:
 
 
-# In progress; Not completed yet
 # This is for the PragmatiCoders Python Challenge
 # Round 1 Questions
 # This is my answer for Practice Problem 1
+# For "txt" text files. Python would not read a Microsoft Word file.
 
 
 # In[2]:
@@ -15,8 +15,7 @@
 
 # Write a function that accepts a text filename as its parameter,
 # Reads the file,
-# Then returns the number of lines, words, and characters
-# In the file
+# Then returns the number of lines, words, and characters in the file
 
 
 # In[3]:
@@ -28,32 +27,44 @@
 # Into words and lines
 
 
-# In[5]:
+# In[4]:
 
 
 # Import the text file
-f = open("C:/Users/nina_/Dropbox/Nina/Data Science/PragmatiCoders/Python/Text File 1.docx")
+filename = "C:/Users/nina_/Dropbox/Nina/Data Science/PragmatiCoders/Python/Txt text File.txt" #"r", encoding = 'utf-8')
 
 
-# In[12]:
+# In[5]:
 
 
 # Create the summarize_text_file Function
-def summarize_text_file(f):
-    content = f.read()
-    splitContent = content.split("\n")
-    counter = 0
-    for i in splitContent:
-        if i:
-            counter += 1
-    return print("The number of lines is " + str(counter))
+def summarize_text_file(filename):
+    lctr = 0
+    wctr = 0
+    cctr = 0
+    # Added the encoding parameter to prevent "Unicode Decode" errors
+    with open(filename, 'r', encoding = 'utf-8') as f:
+        for line in f:
+            lctr += 1
+            word = line.split()
+            wctr += len(word)
+            cctr += len(line)
+    print("The number of lines is " + str(lctr))
+    print("The number of words is " + str(wctr))
+    print("The number of characters is " + str(cctr))
 
 
-# In[13]:
+# In[6]:
 
 
 # Run and Test the Function
-summarize_text_file(f)
+summarize_text_file(filename)
+
+
+# In[7]:
+
+
+# This method produces 70 lines, 500 words, and 2729 characters
 
 
 # In[ ]:
