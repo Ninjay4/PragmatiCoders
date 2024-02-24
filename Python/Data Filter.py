@@ -8,48 +8,49 @@
 # Round 1 Practice Problem #5
 # Write a function that takes
 # A list of dictionaries called people
-# And has keys: name, age, profession
-# The function also takes a "profession" string
+# That have the following keys: name, age, profession
+# The function also takes a key string for the profession name
 
 
 # In[2]:
 
 
 # The function returns a new, filtered list
-# that contains the given 'profession' 
+# that contains the given key, 'profession' 
 
 
 # In[3]:
 
 
 # Hint: Use a list comprehension to filter
-# The dictionaries that are based on "profession"
+# The 'people' dictionary that is based on the "profession" key
 
 
 # In[4]:
 
 
 # Create a "filter_by_profession" function
-def filter_by_profession(people, profession):
+def filter_by_profession(people, profname):
     # The List Comprehension is everything within the return brackets
-    return [person for person in people if person['profession'] == 'chef']
+    return [person for person in people if person['profession'] == profname]
 
 
-# In[5]:
+# In[6]:
 
 
 # Create a 'people' dictionary that contains
 # Dictionaries with keys of name, age, and profession
 people = [{'name': 'Bob', 'age': 47, 'profession': 'construction'}, {'name': 'Sheila', 'age': 32, 'profession': 'manager'}, 
          {'name': 'Ryan', 'age': 24, 'profession': 'personal trainer'}, {'name': 'Amanda', 'age': 28, 'profession': 'chef'}, 
-         {'name': 'Benjamin', 'age': 52, 'profession': 'inventor'}]
+         {'name': 'Benjamin', 'age': 52, 'profession': 'inventor'}, {'name': 'Emeril', 'age': 68, 'profession': 'chef'}]
 
 
-# In[6]:
+# In[7]:
 
 
 # Call and print the filtered list
-print(filter_by_profession(people, 'profession'))
+profname = input("Enter the profession name: ")
+print(filter_by_profession(people, profname))
 
 
 # In[ ]:
